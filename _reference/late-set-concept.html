@@ -1,0 +1,552 @@
+<meta charset="UTF-8">
+<title>Jazz Eclectic Concepts</title>
+<style>
+  /* ============ SWITCHER CHROME ============ */
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: #0B0B0C;
+    font-family: -apple-system, "Segoe UI", sans-serif;
+  }
+  .switcher {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; align-items: center; gap: 0;
+    background: #0B0B0C;
+    border-bottom: 1px solid #2A2A2D;
+    padding: 0 1rem;
+    overflow-x: auto;
+  }
+  .switcher-label {
+    color: #7A7A80;
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding-right: 1rem;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .switcher-btn {
+    appearance: none; border: none; background: none; cursor: pointer;
+    color: #9A9AA0;
+    font-family: inherit;
+    font-size: 0.82rem;
+    padding: 0.95rem 1.1rem;
+    border-bottom: 2px solid transparent;
+    white-space: nowrap;
+    transition: color 0.15s ease;
+  }
+  .switcher-btn:hover { color: #E8E8EC; }
+  .switcher-btn.active {
+    color: #F5F5F7;
+    border-bottom-color: var(--tab-accent, #C89B3C);
+  }
+  .switcher-btn .dot {
+    display: inline-block; width: 6px; height: 6px; border-radius: 50%;
+    margin-right: 0.5em; vertical-align: middle;
+  }
+  .panel { display: none; }
+  .panel.active { display: block; }
+  a { color: inherit; }
+  img, svg { max-width: 100%; display: block; }
+  .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
+
+  /* ================================================================
+     CONCEPT 1 — "LATE SET"  (moody classic jazz club)
+     ================================================================ */
+  .c1 {
+    --bg: #16110D;
+    --bg-raised: #201810;
+    --ink: #F2E8D5;
+    --ink-dim: #C9BBA0;
+    --gold: #C89B3C;
+    --rust: #A23E2F;
+    --line: #4A3B2A;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: Optima, "Century Gothic", Futura, "Segoe UI", sans-serif;
+    position: relative;
+  }
+  .c1 .display {
+    font-family: Didot, "Bodoni MT", "Playfair Display", Georgia, serif;
+  }
+  .c1::before {
+    /* film grain */
+    content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 1;
+    opacity: 0.05; mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .c1 .wrap { max-width: 900px; margin: 0 auto; padding: 0 1.75rem; position: relative; z-index: 2; }
+  .c1 .hero {
+    min-height: 82vh; display: flex; flex-direction: column; justify-content: center;
+    position: relative; overflow: hidden;
+    text-align: center;
+  }
+  .c1 .hero::before {
+    content: ""; position: absolute; left: 50%; top: 38%; width: 900px; height: 900px;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle, rgba(200,155,60,0.16) 0%, rgba(200,155,60,0.05) 40%, transparent 70%);
+    z-index: 0;
+  }
+  .c1 .hero-inner { position: relative; z-index: 1; }
+  .c1 .kicker {
+    font-size: 0.72rem; letter-spacing: 0.32em; text-transform: uppercase;
+    color: var(--gold); margin: 0 0 1.4rem;
+  }
+  .c1 .hero h1 {
+    font-size: clamp(3.2rem, 10vw, 6.4rem);
+    line-height: 0.95; margin: 0; font-weight: 400;
+    letter-spacing: 0.01em;
+    text-wrap: balance;
+  }
+  .c1 .hero h1 em { font-style: italic; color: var(--gold); }
+  .c1 .hero-rule {
+    width: 64px; height: 1px; background: var(--gold); margin: 1.75rem auto;
+  }
+  .c1 .hero-sub {
+    font-size: 0.98rem; letter-spacing: 0.06em; color: var(--ink-dim);
+    max-width: 30em; margin: 0 auto; font-style: italic;
+  }
+  .c1 section { padding: 5rem 0; border-top: 1px solid var(--line); }
+  .c1 .eyebrow {
+    font-size: 0.7rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold);
+    margin: 0 0 1rem;
+  }
+  .c1 h2.display { font-size: clamp(1.8rem, 4vw, 2.6rem); margin: 0 0 2rem; font-weight: 400; }
+  .c1 .bio-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; }
+  .c1 .bio p { line-height: 1.75; color: var(--ink-dim); font-size: 1rem; max-width: 62ch; }
+  .c1 .bio p + p { margin-top: 1.1rem; }
+  .c1 .members { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 1px; background: var(--line); margin-top: 2.5rem; }
+  .c1 .member { background: var(--bg); padding: 1.75rem 1.5rem; }
+  .c1 .member .name { font-family: Didot, Georgia, serif; font-size: 1.2rem; margin: 0 0 0.3rem; }
+  .c1 .member .inst { font-size: 0.78rem; letter-spacing: 0.05em; color: var(--gold); text-transform: uppercase; }
+  .c1 .bill { list-style: none; margin: 0; padding: 0; position: relative; }
+  .c1 .bill::before { content: ""; position: absolute; left: 96px; top: 0; bottom: 0; width: 1px; background: var(--line); }
+  .c1 .bill li { display: grid; grid-template-columns: 96px 1fr; gap: 1.5rem; padding: 1.05rem 0; position: relative; }
+  .c1 .bill .when { font-size: 0.78rem; color: var(--gold); letter-spacing: 0.04em; padding-top: 0.15rem; }
+  .c1 .bill .when::after { content: ""; position: absolute; left: 92px; top: 1.35rem; width: 9px; height: 9px; border-radius: 50%; background: var(--gold); transform: translateX(-50%); }
+  .c1 .bill .what { font-size: 1.02rem; }
+  .c1 .bill .what .venue { color: var(--ink-dim); }
+  .c1 .side { color: var(--gold); font-family: Didot, Georgia, serif; font-size: 0.85rem; letter-spacing: 0.1em; margin: 0 0 1.5rem; }
+  .c1 .tracks { list-style: none; margin: 0; padding: 0; }
+  .c1 .tracks li {
+    display: flex; align-items: baseline; gap: 1.1rem;
+    padding: 0.9rem 0; border-bottom: 1px solid var(--line);
+    font-size: 1.05rem;
+  }
+  .c1 .tracks .num { font-family: Didot, Georgia, serif; color: var(--gold); font-size: 0.95rem; width: 1.4em; }
+  .c1 blockquote {
+    margin: 0; font-family: Didot, Georgia, serif; font-size: clamp(1.3rem, 3vw, 1.7rem);
+    line-height: 1.5; font-style: italic; max-width: 34em;
+  }
+  .c1 blockquote::before { content: "\201C"; color: var(--rust); }
+  .c1 blockquote::after { content: "\201D"; color: var(--rust); }
+  .c1 .attrib { margin-top: 1.25rem; font-size: 0.85rem; color: var(--ink-dim); font-style: normal; letter-spacing: 0.03em; }
+  .c1 .cta-row { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; margin-top: 2rem; }
+  .c1 .btn {
+    display: inline-block; padding: 0.85rem 1.9rem; border: 1px solid var(--gold); color: var(--gold);
+    text-decoration: none; font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+  .c1 .btn:hover { background: var(--gold); color: var(--bg); }
+  .c1 .social { display: flex; gap: 1.25rem; }
+  .c1 .social a { color: var(--ink-dim); font-size: 0.82rem; text-decoration: none; letter-spacing: 0.04em; }
+  .c1 .social a:hover { color: var(--gold); }
+  .c1 footer { padding: 3rem 0; text-align: center; color: var(--ink-dim); font-size: 0.78rem; letter-spacing: 0.05em; }
+
+  /* ================================================================
+     CONCEPT 2 — "SET LIST"  (bold & modern)
+     ================================================================ */
+  .c2 {
+    --bg: #F7F5F0;
+    --ink: #14131A;
+    --sub: #58565F;
+    --blue: #1E4FDE;
+    --coral: #FF5B3C;
+    --yellow: #F2C230;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Helvetica Neue", Arial, "Segoe UI", sans-serif;
+  }
+  .c2 .display {
+    font-family: Futura, "Century Gothic", "Avenir Next", "Segoe UI", sans-serif;
+    text-transform: uppercase;
+  }
+  .c2 .wrap { max-width: 1080px; margin: 0 auto; padding: 0 1.75rem; }
+  .c2 .hero { padding: 5.5rem 0 4rem; }
+  .c2 .hero-kicker {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--sub); margin-bottom: 2rem;
+  }
+  .c2 .hero-kicker::before { content: ""; width: 8px; height: 8px; background: var(--blue); }
+  .c2 .hero h1 {
+    font-weight: 700; margin: 0; line-height: 0.86;
+    font-size: clamp(3.6rem, 12vw, 8.5rem);
+    letter-spacing: -0.01em;
+  }
+  .c2 .hero h1 .line2 { color: var(--blue); display: block; margin-left: clamp(1rem, 8vw, 5rem); position: relative; top: -0.08em; }
+  .c2 .hero-tagline {
+    max-width: 30em; margin: 2.5rem 0 0; font-size: 1.15rem; line-height: 1.6; color: var(--sub);
+    font-family: "Helvetica Neue", Arial, sans-serif;
+  }
+  .c2 .cta-row { display: flex; flex-wrap: wrap; gap: 0.85rem; margin-top: 2.5rem; }
+  .c2 .btn {
+    display: inline-block; padding: 0.95rem 1.75rem; text-decoration: none;
+    font-family: Futura, "Century Gothic", sans-serif; text-transform: uppercase;
+    font-size: 0.82rem; letter-spacing: 0.06em; font-weight: 600;
+    border: 2px solid var(--ink); color: var(--ink);
+  }
+  .c2 .btn.solid { background: var(--ink); color: var(--bg); }
+  .c2 .btn.solid:hover { background: var(--blue); border-color: var(--blue); }
+  .c2 .btn.outline:hover { background: var(--ink); color: var(--bg); }
+  .c2 section { padding: 4.5rem 0; border-top: 3px solid var(--ink); }
+  .c2 .sec-head { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; margin-bottom: 2.5rem; flex-wrap: wrap; }
+  .c2 .sec-head h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); margin: 0; font-weight: 700; }
+  .c2 .sec-head .tag { font-size: 0.75rem; color: var(--sub); letter-spacing: 0.06em; text-transform: uppercase; }
+  .c2 .bio p { font-size: 1.05rem; line-height: 1.7; max-width: 62ch; color: #2B2A30; }
+  .c2 .bio p + p { margin-top: 1.1rem; }
+  .c2 .members { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 2.5rem; }
+  .c2 .member { padding: 1.6rem; color: var(--bg); position: relative; min-height: 150px; display: flex; flex-direction: column; justify-content: flex-end; }
+  .c2 .member:nth-child(4n+1) { background: var(--ink); }
+  .c2 .member:nth-child(4n+2) { background: var(--blue); }
+  .c2 .member:nth-child(4n+3) { background: var(--coral); }
+  .c2 .member:nth-child(4n+4) { background: var(--ink); color: var(--yellow); }
+  .c2 .member .name { font-family: Futura, "Century Gothic", sans-serif; font-weight: 700; font-size: 1.15rem; text-transform: uppercase; }
+  .c2 .member .inst { font-size: 0.82rem; opacity: 0.85; margin-top: 0.2rem; }
+  .c2 .lineup { list-style: none; margin: 0; padding: 0; border-top: 1px solid #D8D5CC; }
+  .c2 .lineup li { display: grid; grid-template-columns: 6.5rem 1fr; gap: 1.25rem; padding: 1.1rem 0; border-bottom: 1px solid #D8D5CC; align-items: baseline; }
+  .c2 .lineup .when { font-family: Futura, "Century Gothic", sans-serif; font-weight: 700; font-size: 0.85rem; text-transform: uppercase; color: var(--blue); }
+  .c2 .lineup .what { font-size: 1.05rem; font-weight: 500; }
+  .c2 .lineup .what .venue { color: var(--sub); font-weight: 400; }
+  .c2 .tracks { list-style: none; margin: 0; padding: 0; }
+  .c2 .tracks li { display: flex; align-items: center; gap: 1.25rem; padding: 1.15rem 1.25rem; font-weight: 600; font-size: 1.1rem; }
+  .c2 .tracks li:nth-child(odd) { background: #EDEAE1; }
+  .c2 .tracks .num { font-family: Futura, "Century Gothic", sans-serif; font-weight: 700; color: var(--coral); font-size: 1rem; width: 1.6em; }
+  .c2 .review { background: var(--ink); color: var(--bg); padding: 3rem; }
+  .c2 blockquote { margin: 0; font-family: Futura, "Century Gothic", sans-serif; font-size: clamp(1.3rem, 3vw, 1.85rem); line-height: 1.4; font-weight: 500; max-width: 34em; }
+  .c2 .attrib { margin-top: 1.5rem; font-size: 0.85rem; color: var(--yellow); text-transform: uppercase; letter-spacing: 0.05em; }
+  .c2 .social { display: flex; gap: 1.5rem; }
+  .c2 .social a { text-decoration: none; font-family: Futura, "Century Gothic", sans-serif; text-transform: uppercase; font-size: 0.82rem; font-weight: 600; letter-spacing: 0.04em; }
+  .c2 .social a:hover { color: var(--blue); }
+  .c2 footer { padding: 3rem 0; text-align: center; font-size: 0.78rem; color: var(--sub); text-transform: uppercase; letter-spacing: 0.06em; }
+
+  /* ================================================================
+     CONCEPT 3 — "ECLECTIC WEAVE"  (warm & organic / world-fusion)
+     ================================================================ */
+  .c3 {
+    --bg: #F3EADA;
+    --bg-raised: #EAE0CB;
+    --ink: #2C2117;
+    --ink-dim: #6B5B47;
+    --teal: #1F5C56;
+    --marigold: #D97D25;
+    --clay: #8C4A3C;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: Avenir, "Segoe UI", sans-serif;
+  }
+  .c3 .display { font-family: Baskerville, "Book Antiqua", Palatino, Georgia, serif; }
+  .c3 .wrap { max-width: 920px; margin: 0 auto; padding: 0 1.75rem; }
+  .c3 .paisley-rule {
+    width: 100%; height: 22px; margin: 0 auto;
+    background-repeat: repeat-x; background-size: 44px 22px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='22'%3E%3Cpath d='M6 18c0-7 5-12 12-12 5 0 8 3 8 7 0 3-2 5-5 5-2 0-4-1-4-3 0-1 1-2 2-2' fill='none' stroke='%231F5C56' stroke-width='1.1' stroke-linecap='round' opacity='0.55'/%3E%3C/svg%3E");
+    opacity: 0.9;
+  }
+  .c3 .hero { padding: 5.5rem 0 3.5rem; text-align: center; }
+  .c3 .hero .kicker { font-size: 0.75rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--teal); margin-bottom: 1.5rem; }
+  .c3 .hero h1 { font-size: clamp(3rem, 9vw, 5.6rem); margin: 0; font-weight: 400; line-height: 1; }
+  .c3 .hero h1 .amp { color: var(--marigold); font-style: italic; }
+  .c3 .hero-sub { max-width: 32em; margin: 1.75rem auto 0; font-size: 1.05rem; line-height: 1.7; color: var(--ink-dim); }
+  .c3 section { padding: 4.5rem 0; }
+  .c3 .eyebrow { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--teal); margin: 0 0 1rem; }
+  .c3 h2.display { font-size: clamp(1.8rem, 4vw, 2.5rem); margin: 0 0 2rem; font-weight: 400; }
+  .c3 .bio p { line-height: 1.8; font-size: 1.02rem; max-width: 62ch; color: var(--ink); }
+  .c3 .bio p + p { margin-top: 1.1rem; }
+  .c3 .members { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.25rem; margin-top: 2.5rem; }
+  .c3 .member {
+    background: var(--bg-raised); padding: 1.75rem 1.5rem;
+    border-radius: 62% 38% 55% 45% / 45% 55% 45% 55%;
+    text-align: center;
+  }
+  .c3 .member .name { font-family: Baskerville, Georgia, serif; font-size: 1.15rem; margin: 0 0 0.3rem; }
+  .c3 .member .inst { font-size: 0.8rem; color: var(--teal); }
+  .c3 .bill { list-style: none; margin: 0; padding: 0; }
+  .c3 .bill li { display: grid; grid-template-columns: 8.5rem 1fr; gap: 1.25rem; padding: 1.05rem 0; border-bottom: 1px dashed #C9BB9E; }
+  .c3 .bill .when { font-family: Baskerville, Georgia, serif; font-style: italic; color: var(--marigold); font-size: 0.95rem; }
+  .c3 .bill .what { font-size: 1rem; }
+  .c3 .bill .what .venue { color: var(--ink-dim); }
+  .c3 .tracks { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 0.9rem; }
+  .c3 .tracks li {
+    background: var(--bg-raised); padding: 1rem 1.25rem; border-radius: 999px;
+    display: flex; align-items: center; gap: 0.85rem; font-size: 0.98rem;
+  }
+  .c3 .tracks .num { color: var(--marigold); font-family: Baskerville, Georgia, serif; font-style: italic; }
+  .c3 blockquote {
+    margin: 0; font-family: Baskerville, Georgia, serif; font-style: italic;
+    font-size: clamp(1.25rem, 3vw, 1.6rem); line-height: 1.6; color: var(--ink); max-width: 34em;
+  }
+  .c3 .attrib { margin-top: 1.25rem; font-size: 0.85rem; color: var(--teal); font-style: normal; }
+  .c3 .cta-row { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; margin-top: 2rem; }
+  .c3 .btn {
+    display: inline-block; padding: 0.85rem 1.9rem; border-radius: 999px;
+    background: var(--teal); color: var(--bg); text-decoration: none;
+    font-size: 0.88rem; letter-spacing: 0.02em;
+  }
+  .c3 .btn:hover { background: var(--marigold); }
+  .c3 .social { display: flex; gap: 1.25rem; }
+  .c3 .social a { color: var(--ink-dim); text-decoration: none; font-size: 0.88rem; }
+  .c3 .social a:hover { color: var(--marigold); }
+  .c3 footer { padding: 3rem 0 3.5rem; text-align: center; color: var(--ink-dim); font-size: 0.8rem; }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+  }
+</style>
+
+<nav class="switcher" aria-label="Design concept switcher">
+  <span class="switcher-label">Jazz Eclectic — three directions</span>
+  <button class="switcher-btn active" data-target="panel-1" style="--tab-accent:#C89B3C" onclick="showPanel('panel-1', this)"><span class="dot" style="background:#C89B3C"></span>1 · Late Set</button>
+  <button class="switcher-btn" data-target="panel-2" style="--tab-accent:#1E4FDE" onclick="showPanel('panel-2', this)"><span class="dot" style="background:#1E4FDE"></span>2 · Set List</button>
+  <button class="switcher-btn" data-target="panel-3" style="--tab-accent:#1F5C56" onclick="showPanel('panel-3', this)"><span class="dot" style="background:#1F5C56"></span>3 · Eclectic Weave</button>
+</nav>
+
+<!-- ============================================================
+     CONCEPT 1 — LATE SET
+     ============================================================ -->
+<div class="panel active c1" id="panel-1">
+  <header class="hero">
+    <div class="wrap hero-inner">
+      <p class="kicker">Brisbane · Est. 2023</p>
+      <h1 class="display">Jazz <em>Eclectic</em></h1>
+      <div class="hero-rule"></div>
+      <p class="hero-sub">Sonorous saxophones, groovin' guitar, mesmerising tablas and more&hellip;</p>
+    </div>
+  </header>
+
+  <section class="wrap">
+    <p class="eyebrow">The Band</p>
+    <h2 class="display">Liner Notes</h2>
+    <div class="bio">
+      <p>Jazz Eclectic, formed in 2023, is a dynamic ensemble featuring Dave Fernandez on tablas and dholak, Katrina Fawns on alto sax and flute, Trent Jordan on tenor and soprano sax, and Calvin Raison on guitar. Our band name reflects our repertoire's diversity, encompassing a wide range of jazz styles, from standards and Latin jazz to funk and modern popular tunes.</p>
+      <p>Our unique lineup creates a distinctive sound characterised by beautiful saxophone harmonies and innovative rhythms introduced through Indian percussion instruments and guitar. Our performances feature songs outside the standard jazz repertoire &mdash; alongside lesser-heard standards and Latin jazz pieces &mdash; arranged to groove and engage.</p>
+    </div>
+    <div class="members">
+      <div class="member"><p class="name">Dave Fernandez</p><p class="inst">Tablas &amp; Dholak</p></div>
+      <div class="member"><p class="name">Katrina Fawns</p><p class="inst">Alto Sax &amp; Flute</p></div>
+      <div class="member"><p class="name">Trent Jordan</p><p class="inst">Tenor &amp; Soprano Sax</p></div>
+      <div class="member"><p class="name">Calvin Raison</p><p class="inst">Guitar</p></div>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <p class="eyebrow">On the Bill</p>
+    <h2 class="display">Recent Shows</h2>
+    <ul class="bill">
+      <li><span class="when">Oct 2025</span><span class="what">City Sounds <span class="venue">&middot; Queen St Mall, Brisbane</span></span></li>
+      <li><span class="when">Aug 2025</span><span class="what">World of Cultures <span class="venue">&middot; Kingston Butter Factory</span></span></li>
+      <li><span class="when">Jul 2025</span><span class="what">Jumpers &amp; Jazz Festival <span class="venue">&middot; Warwick</span></span></li>
+      <li><span class="when">Jan 2025</span><span class="what">City Sounds <span class="venue">&middot; Queen St Mall, Brisbane</span></span></li>
+      <li><span class="when">Nov 2024</span><span class="what">Donald Simpson Centre <span class="venue">&middot; Cleveland</span></span></li>
+      <li><span class="when">Jul 2024</span><span class="what">Devonport Jazz Festival <span class="venue">&middot; Devonport Country Club &amp; Molly Malones</span></span></li>
+      <li><span class="when">Jun 2024</span><span class="what">City Sounds <span class="venue">&middot; Queen St Mall, Brisbane</span></span></li>
+    </ul>
+  </section>
+
+  <section class="wrap">
+    <p class="eyebrow">Now Spinning</p>
+    <h2 class="display">Side A</h2>
+    <p class="side">7 tracks &middot; live selections</p>
+    <ul class="tracks">
+      <li><span class="num">01</span>Starman</li>
+      <li><span class="num">02</span>Besame Mucho</li>
+      <li><span class="num">03</span>Straight No Chaser</li>
+      <li><span class="num">04</span>Just the Two of Us</li>
+      <li><span class="num">05</span>Take 5</li>
+      <li><span class="num">06</span>Flamenco Ain't Bad</li>
+      <li><span class="num">07</span>Afro Blue</li>
+    </ul>
+  </section>
+
+  <section class="wrap">
+    <p class="eyebrow">Word on the Street</p>
+    <blockquote>We would like to convey our thanks and gratitude for the wonderful entertainment you provided. We have had nothing but compliments about your performance &mdash; would love to see the same in 2025 if possible.</blockquote>
+    <p class="attrib">&mdash; Sharon, Art&#64;St Mark's, following Jumpers &amp; Jazz Festival</p>
+  </section>
+
+  <section class="wrap">
+    <p class="eyebrow">Get in Touch</p>
+    <h2 class="display">Book the Band</h2>
+    <p style="color:var(--ink-dim); max-width:40ch; line-height:1.7;">For bookings, enquiries, or just to say hello.</p>
+    <div class="cta-row">
+      <a class="btn" href="mailto:jazzeclectics@gmail.com">Email the Band</a>
+      <div class="social">
+        <a href="#">Facebook</a><a href="#">Instagram</a><a href="#">YouTube</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>&copy; Jazz Eclectic &middot; Brisbane, Australia</footer>
+</div>
+
+<!-- ============================================================
+     CONCEPT 2 — SET LIST
+     ============================================================ -->
+<div class="panel c2" id="panel-2">
+  <header class="wrap hero">
+    <p class="hero-kicker">Brisbane Jazz &middot; Est. 2023</p>
+    <h1 class="display">Jazz<span class="line2">Eclectic</span></h1>
+    <p class="hero-tagline">Sonorous saxophones, groovin' guitar, mesmerising tablas and more &mdash; a Brisbane four-piece that doesn't sit still inside one style of jazz.</p>
+    <div class="cta-row">
+      <a class="btn solid" href="mailto:jazzeclectics@gmail.com">Book the Band</a>
+      <a class="btn outline" href="#panel-2-music">Hear the Music</a>
+    </div>
+  </header>
+
+  <section class="wrap">
+    <div class="sec-head"><h2 class="display">The Band</h2><span class="tag">Four piece &middot; formed 2023</span></div>
+    <div class="bio">
+      <p>Jazz Eclectic's name reflects our repertoire's diversity, encompassing a wide range of jazz styles, from standards and Latin jazz to funk and modern popular tunes. Our unique lineup creates a distinctive sound characterised by beautiful saxophone harmonies and innovative rhythms introduced through Indian percussion instruments and guitar.</p>
+      <p>Our performances feature songs outside the standard jazz repertoire, alongside lesser-heard standards and Latin jazz pieces &mdash; arrangements designed to groove and engage, blending traditional jazz elements with contemporary and global influences.</p>
+    </div>
+    <div class="members">
+      <div class="member"><p class="name">Dave Fernandez</p><p class="inst">Tablas &amp; Dholak</p></div>
+      <div class="member"><p class="name">Katrina Fawns</p><p class="inst">Alto Sax &amp; Flute</p></div>
+      <div class="member"><p class="name">Trent Jordan</p><p class="inst">Tenor &amp; Soprano Sax</p></div>
+      <div class="member"><p class="name">Calvin Raison</p><p class="inst">Guitar</p></div>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <div class="sec-head"><h2 class="display">Lineup History</h2><span class="tag">2024 &ndash; 2025</span></div>
+    <ul class="lineup">
+      <li><span class="when">Oct 2025</span><span class="what">City Sounds <span class="venue">&middot; Queen St Mall, Brisbane</span></span></li>
+      <li><span class="when">Aug 2025</span><span class="what">World of Cultures <span class="venue">&middot; Kingston Butter Factory</span></span></li>
+      <li><span class="when">Jul 2025</span><span class="what">Jumpers &amp; Jazz Festival <span class="venue">&middot; Warwick</span></span></li>
+      <li><span class="when">Jan 2025</span><span class="what">City Sounds <span class="venue">&middot; Queen St Mall, Brisbane</span></span></li>
+      <li><span class="when">Nov 2024</span><span class="what">Donald Simpson Centre <span class="venue">&middot; Cleveland</span></span></li>
+      <li><span class="when">Jul 2024</span><span class="what">Devonport Jazz Festival <span class="venue">&middot; Devonport Country Club &amp; Molly Malones</span></span></li>
+      <li><span class="when">Jun 2024</span><span class="what">City Sounds <span class="venue">&middot; Queen St Mall, Brisbane</span></span></li>
+    </ul>
+  </section>
+
+  <section class="wrap" id="panel-2-music">
+    <div class="sec-head"><h2 class="display">Set List</h2><span class="tag">7 tracks</span></div>
+    <ul class="tracks">
+      <li><span class="num">01</span>Starman</li>
+      <li><span class="num">02</span>Besame Mucho</li>
+      <li><span class="num">03</span>Straight No Chaser</li>
+      <li><span class="num">04</span>Just the Two of Us</li>
+      <li><span class="num">05</span>Take 5</li>
+      <li><span class="num">06</span>Flamenco Ain't Bad</li>
+      <li><span class="num">07</span>Afro Blue</li>
+    </ul>
+  </section>
+
+  <section class="review">
+    <div class="wrap">
+      <blockquote>Nothing but compliments about your performance, and how much they enjoyed it &mdash; would love to see the same in 2025 if possible.</blockquote>
+      <p class="attrib">Sharon &middot; Art&#64;St Mark's, Jumpers &amp; Jazz Festival</p>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <div class="sec-head"><h2 class="display">Book the Band</h2></div>
+    <div class="cta-row">
+      <a class="btn solid" href="mailto:jazzeclectics@gmail.com">Email Us</a>
+      <div class="social" style="align-self:center;">
+        <a href="#">Facebook</a><a href="#">Instagram</a><a href="#">YouTube</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>Jazz Eclectic &middot; Brisbane, Australia</footer>
+</div>
+
+<!-- ============================================================
+     CONCEPT 3 — ECLECTIC WEAVE
+     ============================================================ -->
+<div class="panel c3" id="panel-3">
+  <header class="hero wrap">
+    <p class="kicker">Brisbane, since 2023</p>
+    <h1 class="display">Jazz <span class="amp">&amp;</span> Eclectic</h1>
+    <p class="hero-sub">Sonorous saxophones, groovin' guitar, mesmerising tablas and more &mdash; four voices, one weave.</p>
+  </header>
+  <div class="paisley-rule"></div>
+
+  <section class="wrap">
+    <p class="eyebrow">The Band</p>
+    <h2 class="display">Four Threads, One Weave</h2>
+    <div class="bio">
+      <p>Jazz Eclectic, formed in 2023, is a dynamic ensemble featuring Dave Fernandez on tablas and dholak, Katrina Fawns on alto sax and flute, Trent Jordan on tenor and soprano sax, and Calvin Raison on guitar. Our name reflects our repertoire's diversity &mdash; standards and Latin jazz woven through funk and modern popular tunes.</p>
+      <p>Our lineup creates a distinctive sound: saxophone harmonies meeting the innovative rhythms of Indian percussion and guitar. It's a unique take on the jazz art form, blending traditional elements with contemporary and global influences.</p>
+    </div>
+    <div class="members">
+      <div class="member"><p class="name">Dave Fernandez</p><p class="inst">Tablas &amp; Dholak</p></div>
+      <div class="member"><p class="name">Katrina Fawns</p><p class="inst">Alto Sax &amp; Flute</p></div>
+      <div class="member"><p class="name">Trent Jordan</p><p class="inst">Tenor &amp; Soprano Sax</p></div>
+      <div class="member"><p class="name">Calvin Raison</p><p class="inst">Guitar</p></div>
+    </div>
+  </section>
+
+  <div class="paisley-rule"></div>
+
+  <section class="wrap">
+    <p class="eyebrow">Where We've Played</p>
+    <h2 class="display">Recent Shows</h2>
+    <ul class="bill">
+      <li><span class="when">Oct 2025</span><span class="what">City Sounds <span class="venue">&middot; Queen St Mall, Brisbane</span></span></li>
+      <li><span class="when">Aug 2025</span><span class="what">World of Cultures <span class="venue">&middot; Kingston Butter Factory</span></span></li>
+      <li><span class="when">Jul 2025</span><span class="what">Jumpers &amp; Jazz Festival <span class="venue">&middot; Warwick</span></span></li>
+      <li><span class="when">Jan 2025</span><span class="what">City Sounds <span class="venue">&middot; Queen St Mall, Brisbane</span></span></li>
+      <li><span class="when">Nov 2024</span><span class="what">Donald Simpson Centre <span class="venue">&middot; Cleveland</span></span></li>
+      <li><span class="when">Jul 2024</span><span class="what">Devonport Jazz Festival <span class="venue">&middot; Devonport Country Club &amp; Molly Malones</span></span></li>
+      <li><span class="when">Jun 2024</span><span class="what">City Sounds <span class="venue">&middot; Queen St Mall, Brisbane</span></span></li>
+    </ul>
+  </section>
+
+  <section class="wrap">
+    <p class="eyebrow">Listen</p>
+    <h2 class="display">The Set</h2>
+    <ul class="tracks">
+      <li><span class="num">i.</span>Starman</li>
+      <li><span class="num">ii.</span>Besame Mucho</li>
+      <li><span class="num">iii.</span>Straight No Chaser</li>
+      <li><span class="num">iv.</span>Just the Two of Us</li>
+      <li><span class="num">v.</span>Take 5</li>
+      <li><span class="num">vi.</span>Flamenco Ain't Bad</li>
+      <li><span class="num">vii.</span>Afro Blue</li>
+    </ul>
+  </section>
+
+  <div class="paisley-rule"></div>
+
+  <section class="wrap">
+    <p class="eyebrow">Kind Words</p>
+    <blockquote>We would like to convey our thanks and gratitude for the wonderful entertainment you provided &mdash; nothing but compliments, and we'd love to see the same again if possible.</blockquote>
+    <p class="attrib">Sharon &middot; Art&#64;St Mark's, following Jumpers &amp; Jazz Festival</p>
+  </section>
+
+  <section class="wrap">
+    <p class="eyebrow">Say Hello</p>
+    <h2 class="display">Book the Band</h2>
+    <div class="cta-row">
+      <a class="btn" href="mailto:jazzeclectics@gmail.com">Email the Band</a>
+      <div class="social">
+        <a href="#">Facebook</a><a href="#">Instagram</a><a href="#">YouTube</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>Jazz Eclectic &middot; Brisbane, Australia</footer>
+</div>
+
+<script>
+  function showPanel(id, btn) {
+    document.querySelectorAll('.panel').forEach(function (p) { p.classList.remove('active'); });
+    document.getElementById(id).classList.add('active');
+    document.querySelectorAll('.switcher-btn').forEach(function (b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'auto' });
+  }
+</script>
