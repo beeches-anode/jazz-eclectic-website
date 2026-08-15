@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jazz Eclectic — Brisbane jazz quartet</title>
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+<nav class="site-nav" aria-label="Site">
+  <a href="/" aria-current="page">Home</a>
+  <a href="contact.html">Contact</a>
+</nav>
+<main class="page">
+  <header class="hero">
+    <div class="wrap hero-inner">
+      <p class="kicker">Brisbane · Est. 2023</p>
+      <h1 class="display">Jazz <em>Eclectic</em></h1>
+      <div class="hero-rule"></div>
+      <p class="hero-sub">Sonorous saxophones, groovin' guitar, mesmerising tablas and more&hellip;</p>
+    </div>
+  </header>
+
+  <section class="wrap">
+    <p class="eyebrow">The Band</p>
+    <h2 class="display">Liner Notes</h2>
+    <div class="bio">
+      <p>Jazz Eclectic, formed in 2023, is a dynamic ensemble featuring Dave Fernandez on tablas and dholak, Katrina Fawns on alto sax and flute, Trent Jordan on tenor and soprano sax, and Calvin Raison on guitar. Our band name reflects our repertoire's diversity, encompassing a wide range of jazz styles, from standards and Latin jazz to funk and modern popular tunes.</p>
+      <p>Our unique lineup creates a distinctive sound characterised by beautiful saxophone harmonies and innovative rhythms introduced through Indian percussion instruments and guitar. Our performances feature songs outside the standard jazz repertoire &mdash; alongside lesser-heard standards and Latin jazz pieces &mdash; arranged to groove and engage.</p>
+    </div>
+    <div class="members">
+      <div class="member"><p class="name">Dave Fernandez</p><p class="inst">Tablas &amp; Dholak</p></div>
+      <div class="member"><p class="name">Katrina Fawns</p><p class="inst">Alto Sax &amp; Flute</p></div>
+      <div class="member"><p class="name">Trent Jordan</p><p class="inst">Tenor &amp; Soprano Sax</p></div>
+      <div class="member"><p class="name">Calvin Raison</p><p class="inst">Guitar</p></div>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <p class="eyebrow">On the Bill</p>
+    <h2 class="display">Recent Shows</h2>
+    <ul class="bill">
+      <li><span class="when">Oct 2025</span><span class="what">City Sounds <span class="venue">&middot; Queen St Mall, Brisbane</span></span></li>
+      <li><span class="when">Aug 2025</span><span class="what">World of Cultures <span class="venue">&middot; Kingston Butter Factory</span></span></li>
+      <li><span class="when">Jul 2025</span><span class="what">Jumpers &amp; Jazz Festival <span class="venue">&middot; Warwick</span></span></li>
+      <li><span class="when">Jan 2025</span><span class="what">City Sounds <span class="venue">&middot; Queen St Mall, Brisbane</span></span></li>
+      <li><span class="when">Nov 2024</span><span class="what">Donald Simpson Centre <span class="venue">&middot; Cleveland</span></span></li>
+      <li><span class="when">Jul 2024</span><span class="what">Jumpers &amp; Jazz <span class="venue">&middot; Warwick, St Marks precinct</span></span></li>
+      <li><span class="when">Jul 2024</span><span class="what">Devonport Jazz Festival <span class="venue">&middot; Devonport Country Club &amp; Molly Malones</span></span></li>
+      <li><span class="when">Jun 2024</span><span class="what">City Sounds <span class="venue">&middot; Queen St Mall, Brisbane</span></span></li>
+      <li><span class="when">Apr 2024</span><span class="what">Donald Simpson Centre <span class="venue">&middot; Cleveland</span></span></li>
+      <li><span class="when">Mar 2024</span><span class="what">Junk Bar <span class="venue">&middot; Ashgrove</span></span></li>
+      <li><span class="when">Mar 2024</span><span class="what">City Sounds <span class="venue">&middot; Queen St Mall, Brisbane</span></span></li>
+    </ul>
+  </section>
+
+  <section class="wrap" id="music">
+    <p class="eyebrow">Now Spinning</p>
+    <h2 class="display">Side A</h2>
+    <p class="side">7 tracks · live selections — tap a track to listen</p>
+    <ul class="tracks" id="tracklist">
+      <li tabindex="0" role="button" data-src="music/Jazz Eclectic - Starman.mp3"><span class="num">01</span><span class="title">Starman</span><span class="time">4:45</span><span class="progress"></span></li>
+      <li tabindex="0" role="button" data-src="music/Jazz Eclectic - Besame Mucho.mp3"><span class="num">02</span><span class="title">Besame Mucho</span><span class="time">4:40</span><span class="progress"></span></li>
+      <li tabindex="0" role="button" data-src="music/Jazz Eclectic - Straight No Chaser.mp3"><span class="num">03</span><span class="title">Straight No Chaser</span><span class="time">4:48</span><span class="progress"></span></li>
+      <li tabindex="0" role="button" data-src="music/Jazz Eclectic - Just the Two of Us.mp3"><span class="num">04</span><span class="title">Just the Two of Us</span><span class="time">5:35</span><span class="progress"></span></li>
+      <li tabindex="0" role="button" data-src="music/Jazz Eclectic - Take 5.mp3"><span class="num">05</span><span class="title">Take 5</span><span class="time">5:33</span><span class="progress"></span></li>
+      <li tabindex="0" role="button" data-src="music/Jazz Eclectic - Flamenco Ain't Bad.mp3"><span class="num">06</span><span class="title">Flamenco Ain't Bad</span><span class="time">6:01</span><span class="progress"></span></li>
+      <li tabindex="0" role="button" data-src="music/Jazz Eclectic - Afro Blue.mp3"><span class="num">07</span><span class="title">Afro Blue</span><span class="time">5:47</span><span class="progress"></span></li>
+    </ul>
+    <audio id="player" preload="none"></audio>
+  </section>
+
+  <div class="divider-photo" role="presentation">
+    <img src="images/divider-epk.jpg" alt="" loading="lazy">
+  </div>
+
+  <section class="wrap">
+    <p class="eyebrow">On Stage</p>
+    <h2 class="display">Press Photos</h2>
+    <div class="gallery">
+      <img src="images/gallery-01.jpg" alt="Jazz Eclectic performing at the Devonport Jazz Festival, 2024" loading="lazy">
+      <img src="images/gallery-02.jpg" alt="Katrina Fawns playing alto sax on stage at the Devonport Jazz Festival, 2024" loading="lazy">
+      <img src="images/gallery-03.jpg" alt="Trent Jordan playing tenor sax on stage at the Devonport Jazz Festival, 2024" loading="lazy">
+      <img src="images/gallery-04.jpg" alt="Calvin Raison playing guitar on stage at the Devonport Jazz Festival, 2024" loading="lazy">
+      <img src="images/gallery-05.jpg" alt="Dave Fernandez playing tablas on stage at the Devonport Jazz Festival, 2024" loading="lazy">
+      <img src="images/gallery-06.jpg" alt="Jazz Eclectic performing together at the Devonport Jazz Festival, 2024" loading="lazy">
+      <img src="images/gallery-07.jpg" alt="Jazz Eclectic performing live, August 2024" loading="lazy">
+      <img src="images/gallery-08.jpg" alt="Jazz Eclectic band portrait — Dave Fernandez, Katrina Fawns, Trent Jordan and Calvin Raison" loading="lazy">
+    </div>
+  </section>
+
+  <section class="wrap">
+    <p class="eyebrow">Word on the Street</p>
+    <blockquote>We would like to convey our thanks and gratitude for the wonderful entertainment you provided. We have had nothing but compliments about your performance &mdash; would love to see the same in 2025 if possible.</blockquote>
+    <p class="attrib">&mdash; Sharon, Art&#64;St Mark's, following Jumpers &amp; Jazz Festival</p>
+  </section>
+
+  <section class="wrap">
+    <p class="eyebrow">Get in Touch</p>
+    <h2 class="display">Book the Band</h2>
+    <p style="color:var(--ink-dim); max-width:40ch; line-height:1.7;">For bookings, enquiries, or just to say hello.</p>
+    <div class="cta-row">
+      <a class="btn" href="mailto:jazzeclectics@gmail.com">Email the Band</a>
+      <div class="social">
+        <a href="https://www.facebook.com/profile.php?id=61551349057664">Facebook</a><a href="https://www.instagram.com/jazzeclecticband">Instagram</a><a href="https://www.youtube.com/@JazzEclectic">YouTube</a>
+      </div>
+      <a class="btn" href="contact.html">Contact Page</a>
+    </div>
+  </section>
+
+  <footer>&copy; Jazz Eclectic &middot; Brisbane, Australia</footer>
+</main>
+<script src="js/player.js" defer></script>
+</body>
+</html>
