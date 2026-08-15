@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact — Jazz Eclectic</title>
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+<nav class="site-nav" aria-label="Site">
+  <a href="/">Home</a>
+  <a href="contact.html" aria-current="page">Contact</a>
+</nav>
+<main class="page">
+  <section class="wrap" style="padding-top:4rem;">
+    <p class="eyebrow">Get in Touch</p>
+    <h1 class="display" style="font-size:clamp(2.2rem,6vw,3.6rem);">How to Contact Us</h1>
+    <div class="bio">
+      <p>If you'd like to contact us to say hi — or for a more exciting reason, such as booking us
+      for your venue, event, wedding or party — email us at
+      <a href="mailto:jazzeclectics@gmail.com" style="color:var(--gold);">jazzeclectics@gmail.com</a>
+      or use the form below.</p>
+    </div>
+    <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="form-grid" style="margin-top:2.5rem;">
+      <p class="hidden"><label>Don't fill this out: <input name="bot-field"></label></p>
+      <div><label for="cf-name">Name</label><input id="cf-name" type="text" name="name" required autocomplete="name"></div>
+      <div><label for="cf-email">Email</label><input id="cf-email" type="email" name="email" required autocomplete="email"></div>
+      <div><label for="cf-message">Message</label><textarea id="cf-message" name="message" rows="6" required></textarea></div>
+      <div><button type="submit" class="btn">Send Message</button></div>
+    </form>
+  </section>
+  <footer>&copy; Jazz Eclectic &middot; Brisbane, Australia</footer>
+</main>
+</body>
+</html>
