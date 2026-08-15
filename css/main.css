@@ -45,14 +45,32 @@ body::before {
   min-height: 82vh; display: flex; flex-direction: column; justify-content: center;
   position: relative; overflow: hidden;
   text-align: center;
+  background: var(--bg); /* painted ground so nothing flashes before the photo decodes */
 }
-.hero::before {
-  content: ""; position: absolute; left: 50%; top: 38%; width: 900px; height: 900px;
-  transform: translate(-50%, -50%);
-  background: radial-gradient(circle, rgba(200,155,60,0.16) 0%, rgba(200,155,60,0.05) 40%, transparent 70%);
+/* Band photo as the hero ground. Source is portrait; object-position keeps the four faces
+   (upper ~65% of the frame) in view when cover crops the sides on wide viewports. */
+.hero-bg {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; object-position: 50% 38%;
+  filter: saturate(0.85);
   z-index: 0;
 }
-.hero-inner { position: relative; z-index: 1; }
+/* Warm charcoal scrim: heavy at the title band, lighter above so the faces still read,
+   fading to the page ground at the bottom edge for a seamless hand-off into the bio. */
+.hero-scrim {
+  position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background:
+    radial-gradient(ellipse 58% 42% at 50% 55%, rgba(22,17,13,0.72) 0%, rgba(22,17,13,0.45) 55%, transparent 100%),
+    linear-gradient(to bottom, rgba(22,17,13,0.5) 0%, rgba(22,17,13,0.28) 35%, rgba(22,17,13,0.55) 70%, var(--bg) 100%);
+}
+.hero::before {
+  content: ""; position: absolute; left: 50%; top: 42%; width: 900px; height: 900px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(200,155,60,0.14) 0%, rgba(200,155,60,0.04) 40%, transparent 70%);
+  z-index: 2; pointer-events: none;
+}
+.hero-inner { position: relative; z-index: 3; }
+.hero h1, .hero .kicker, .hero .hero-sub { text-shadow: 0 2px 18px rgba(0,0,0,0.55); }
 .kicker {
   font-size: 0.72rem; letter-spacing: 0.32em; text-transform: uppercase;
   color: var(--gold); margin: 0 0 1.4rem;
@@ -126,12 +144,13 @@ footer { padding: 3rem 0; text-align: center; color: var(--ink-dim); font-size: 
 
 /* photo gallery */
 .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
-.gallery img { width: 100%; height: 300px; object-fit: cover; display: block; filter: saturate(0.9); transition: filter 0.2s ease; }
+.gallery img { width: 100%; height: 300px; object-fit: cover; object-position: 50% 40%; display: block; filter: saturate(0.9); transition: filter 0.2s ease; }
 .gallery img:hover { filter: saturate(1.05); }
-
-/* full-bleed darkened divider photo */
-.divider-photo { position: relative; height: 42vh; min-height: 280px; overflow: hidden; }
-.divider-photo img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.32) saturate(0.85); }
+/* Face-aware crops: portrait stage shots put heads in the top of the frame, and cover would
+   otherwise centre-crop them off. `top` pins the crop window to the top edge; `upper` biases
+   toward the upper third. Set per-image via data-focus in the markup. */
+.gallery img[data-focus="top"]   { object-position: 50% 0%; }
+.gallery img[data-focus="upper"] { object-position: 50% 22%; }
 
 /* audio player states (used by js/player.js) */
 .tracks li { cursor: pointer; position: relative; }
