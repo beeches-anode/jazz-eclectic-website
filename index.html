@@ -51,7 +51,12 @@
 </nav>
 <main class="page">
   <header class="hero">
-    <img class="hero-bg" src="images/hero-band.jpg" alt="" fetchpriority="high" decoding="async">
+    <!-- Art-directed hero: landscape band shot on wide screens, portrait on narrow. Same shoot,
+         same afternoon, so the two read as one identity. The browser downloads only one. -->
+    <picture>
+      <source media="(min-aspect-ratio: 4/5)" srcset="images/hero-band-wide.jpg">
+      <img class="hero-bg" src="images/hero-band.jpg" alt="" fetchpriority="high" decoding="async">
+    </picture>
     <div class="hero-scrim" aria-hidden="true"></div>
     <div class="wrap hero-inner">
       <p class="kicker">Brisbane · Est. 2023</p>
