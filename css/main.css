@@ -55,11 +55,6 @@ body::before {
   object-fit: cover; object-position: 50% 38%; /* portrait source: faces in the upper ~65% */
   filter: saturate(0.85);
 }
-/* Wide viewports get the landscape source (see <picture> in index.html) — faces sit at
-   roughly 45% down the frame there, so re-centre the crop for it. */
-@media (min-aspect-ratio: 4/5) {
-  .hero-bg { object-position: 50% 45%; }
-}
 /* Warm charcoal scrim: heavy at the title band, lighter above so the faces still read,
    fading to the page ground at the bottom edge for a seamless hand-off into the bio. */
 .hero-scrim {
@@ -75,11 +70,23 @@ body::before {
   z-index: 2; pointer-events: none;
 }
 .hero-inner { position: relative; z-index: 3; }
-.hero h1, .hero .kicker, .hero .hero-sub { text-shadow: 0 2px 18px rgba(0,0,0,0.55); }
-.kicker {
-  font-size: 0.72rem; letter-spacing: 0.32em; text-transform: uppercase;
-  color: var(--gold); margin: 0 0 1.4rem;
+/* Wide viewports get the landscape source (see <picture> in index.html). Faces are laid out
+   on a diagonal — Calvin top-centre, Trent centre-left, Katrina centre-right, Dave lower-left —
+   so the wordmark is pushed below vertical centre to sit over the instruments rather than
+   over faces. The scrim's dark ellipse moves with it. On the portrait/mobile source faces sit
+   top AND bottom, so centred text (the default) is already the clear zone there. */
+@media (min-aspect-ratio: 4/5) {
+  .hero-bg { object-position: 50% 42%; }
+  .hero { justify-content: flex-end; }
+  .hero-inner { padding-bottom: clamp(3.5rem, 9vh, 7rem); }
+  .hero::before { top: 74%; }
+  .hero-scrim {
+    background:
+      radial-gradient(ellipse 58% 40% at 50% 74%, rgba(22,17,13,0.74) 0%, rgba(22,17,13,0.45) 55%, transparent 100%),
+      linear-gradient(to bottom, rgba(22,17,13,0.42) 0%, rgba(22,17,13,0.22) 30%, rgba(22,17,13,0.6) 72%, var(--bg) 100%);
+  }
 }
+.hero h1, .hero .hero-sub { text-shadow: 0 2px 18px rgba(0,0,0,0.55); }
 .hero h1 {
   font-size: clamp(3.2rem, 10vw, 6.4rem);
   line-height: 0.95; margin: 0; font-weight: 400;
